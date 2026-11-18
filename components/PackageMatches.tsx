@@ -9,11 +9,11 @@ export default function PackageMatches({matches,type,duration}:{
     <section
       aria-label="Matching packages"
       style={{
-        width:1920,boxSizing:'border-box',background:'#E8DFC8',color:'#194735',
-        padding:'28px 320px 32px',borderBottom:'1px solid rgba(25,71,53,0.18)',
+        width:'100%',maxWidth:1920,boxSizing:'border-box',background:'#E8DFC8',color:'#194735',
+        padding:'28px clamp(16px,4vw,320px) 32px',borderBottom:'1px solid rgba(25,71,53,0.18)',
       }}
     >
-      <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:24,marginBottom:16}}>
+      <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:24,marginBottom:16,flexWrap:'wrap'}}>
         <div>
           <p style={{margin:0,fontSize:11,letterSpacing:2.2,textTransform:'uppercase',fontWeight:700,color:'#EE4129'}}>Matches for you</p>
           <h2 style={{margin:'4px 0 0',fontFamily:'var(--volkhov),serif',fontWeight:700,fontSize:34,lineHeight:1.15}}>
@@ -29,7 +29,7 @@ export default function PackageMatches({matches,type,duration}:{
       {matches.length===0 ? (
         <p style={{margin:0,fontSize:15,opacity:0.8}}>Nothing fits that combination yet — try another travel type or a wider duration.</p>
       ) : (
-        <div style={{display:'grid',gridTemplateColumns:'repeat(2, 1fr)',gap:14}}>
+        <div className="package-matches-grid" style={{display:'grid',gridTemplateColumns:'repeat(2, 1fr)',gap:14}}>
           {matches.map(p=>(
             <article
               key={p.name}

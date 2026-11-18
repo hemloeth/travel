@@ -58,7 +58,7 @@ Source imagery, logos and decorative artwork remain unmodified. Text, buttons an
 
 Poppins, Volkhov, Manrope, Yesteryear and Roboto are loaded through next/font. The source also names Circular Std and Gilroy; their font binaries were not supplied, so those small portions currently fall back to Poppins. Add licensed font files to remove these remaining typography differences.
 
-The supplied Figma frames are desktop canvases (1920px wide). This implementation scales those desktop compositions to the viewport to preserve their proportions. It does not invent a separate mobile design. A dedicated mobile reflow remains a separate task if required.
+The supplied Figma frames are desktop canvases (1920px wide). Above 1100px the desktop compositions are scaled to the viewport as before. At 1100px and below a responsive reflow in `app/globals.css` replaces the scale-to-fit approach: layers flow into a single column, typography uses a fluid clamp() scale derived from the desktop sizes, decorative/rotated artwork and masked crops are hidden or reset, and the interactive pieces (hero search form, builder package form, package cards, bullet lists) stack or widen appropriately. No separate mobile Figma design was supplied, so the reflow reuses the desktop artwork and hierarchy.
 
 ## Interaction scope
 
