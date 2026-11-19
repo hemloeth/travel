@@ -555,19 +555,19 @@ p {
     margin-left: 0 !important;
   }
 
-  /* Search Tools Card */
+  /* Search Tools Card (Travel Booking Boxes) */
   .section-hero form[data-name="Searcging Tools"] {
     order: 3 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 8px !important;
     background: #ffffff !important;
-    border-radius: 16px !important;
-    padding: 20px 18px !important;
+    border-radius: 14px !important;
+    padding: 14px 14px !important;
     width: 100% !important;
-    max-width: 350px !important;
-    margin: 8px auto 0 !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3) !important;
+    max-width: 290px !important;
+    margin: 6px auto 0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
   }
   .section-hero form[data-name="Searcging Tools"] .design-input {
     order: 1 !important;
@@ -575,15 +575,18 @@ p {
     color: #194735 !important;
     background: #f7f5ef !important;
     border: 1px solid rgba(25, 71, 53, 0.2) !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
-    min-height: 48px !important;
-    font-size: 15px !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    font-size: 13px !important;
     margin: 0 !important;
+    box-sizing: border-box !important;
   }
   .section-hero form[data-name="Searcging Tools"] span {
     width: 100% !important;
     display: flex !important;
+    position: relative !important;
   }
   .section-hero form[data-name="Searcging Tools"] .figma-layer:has(select) {
     width: 100% !important;
@@ -599,11 +602,16 @@ p {
     width: 100% !important;
     background: #f7f5ef !important;
     border: 1px solid rgba(25, 71, 53, 0.2) !important;
-    border-radius: 10px !important;
-    padding: 12px 14px !important;
+    border-radius: 8px !important;
+    padding: 8px 30px 8px 12px !important;
     color: #194735 !important;
-    font-size: 14px !important;
-    min-height: 48px !important;
+    font-size: 13px !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    box-sizing: border-box !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] select + svg {
+    right: 10px !important;
   }
   .section-hero form[data-name="Searcging Tools"] select + svg path {
     stroke: #194735 !important;
@@ -611,15 +619,25 @@ p {
   .section-hero form[data-name="Searcging Tools"] button[type=submit] {
     order: 4 !important;
     width: 100% !important;
-    min-height: 48px !important;
+    min-height: 38px !important;
+    height: 38px !important;
     background: #EE4129 !important;
     color: #ffffff !important;
-    border-radius: 10px !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
     border: none !important;
     margin: 2px 0 0 !important;
     cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] button[type=submit] p {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
   }
 
   /* ------------------------------------------------------------
@@ -1551,13 +1569,17 @@ p {
     color: #194735 !important;
     margin: 4px 0 0 !important;
   }
-  /* Hide background shapes and pagination arrows on mobile */
+  /* Hide background shapes, pagination arrows, and floating travel concepts image on mobile */
   .section-testimonials [data-node-id="0:623"],
   .section-testimonials [data-node-id="0:678"],
   .section-testimonials [data-node-id="0:682"],
   .section-testimonials [data-node-id="0:684"],
   .section-testimonials [data-name="navigation"],
-  .section-testimonials [data-name="Pagination"] {
+  .section-testimonials [data-name="Pagination"],
+  .section-testimonials [data-node-id="0:1029"],
+  .section-testimonials [data-node-id="0:1030"],
+  .section-testimonials [data-name="Travel_Concepts_2 1"],
+  .section-testimonials img[src*="be462599"] {
     display: none !important;
   }
 
@@ -1566,17 +1588,19 @@ p {
      ------------------------------------------------------------ */
   .section-footer {
     background: #f7f4ea !important;
-    padding: 44px 20px 28px !important;
+    padding: 36px 20px 24px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 28px !important;
+    gap: 20px !important;
     width: 100% !important;
     border-top: 1px solid rgba(25, 71, 53, 0.1) !important;
   }
   /* Hide the desktop background image */
-  .section-footer [data-node-id="0:625"] {
+  .section-footer [data-node-id="0:625"],
+  .section-footer [data-name="Footer img"],
+  .section-footer img[src*="3f8a5df9"] {
     display: none !important;
   }
   /* Logo */
@@ -1586,7 +1610,7 @@ p {
     flex-direction: column !important;
     align-items: center !important;
     gap: 4px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 2px !important;
   }
   .section-footer [data-node-id="0:668"] {
     font-family: var(--volkhov), serif !important;
@@ -1601,7 +1625,7 @@ p {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
     width: 100% !important;
   }
   .section-footer [data-node-id="0:655"] {
@@ -1609,7 +1633,7 @@ p {
     line-height: 1.5 !important;
     color: #666666 !important;
     margin: 0 !important;
-    max-width: 260px !important;
+    max-width: 280px !important;
     text-align: center !important;
   }
   .section-footer [data-node-id="0:656"] {
@@ -1617,36 +1641,61 @@ p {
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 16px !important;
-    margin-top: 4px !important;
+    gap: 14px !important;
+    margin: 4px auto 0 !important;
   }
   .section-footer [data-node-id="0:656"] .figma-layer {
-    width: 36px !important;
-    height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
     background: #ffffff !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-    padding: 8px !important;
+    padding: 0 !important;
+    position: relative !important;
   }
-  /* Nav Wrap (Company & Destinations columns) */
+  .section-footer [data-node-id="0:656"] img {
+    position: relative !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+    margin: auto !important;
+    object-fit: contain !important;
+  }
+  /* Nav Wrap (Company & Destinations in 2 clean columns, Newsletter stacked below) */
   .section-footer [data-name="Nav Wrap"] {
     order: 3 !important;
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    gap: 40px !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
     width: 100% !important;
-    max-width: 360px !important;
-    text-align: left !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    gap: 20px 0 !important;
   }
-  .section-footer [data-name="Nav List Item"] {
+  /* Column 1: Company */
+  .section-footer [data-node-id="0:631"] {
+    order: 1 !important;
+    width: 48% !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
     align-items: flex-start !important;
+    text-align: left !important;
+    gap: 8px !important;
+  }
+  /* Column 2: Destinations */
+  .section-footer [data-node-id="0:638"] {
+    order: 2 !important;
+    width: 48% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 8px !important;
   }
   .section-footer [data-name="Nav List Item"] > p {
     font-size: 17px !important;
@@ -1663,16 +1712,15 @@ p {
     margin: 0 !important;
     padding: 2px 0 !important;
   }
-  /* Newsletter Block */
+  /* Newsletter Block (Full-width row below links) */
   .section-footer [data-node-id="0:645"] {
-    order: 4 !important;
+    order: 3 !important;
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     gap: 10px !important;
-    width: 100% !important;
-    max-width: 320px !important;
     margin: 10px auto 0 !important;
   }
   .section-footer [data-node-id="0:646"] {
@@ -1686,6 +1734,7 @@ p {
     flex-direction: column !important;
     gap: 8px !important;
     width: 100% !important;
+    max-width: 320px !important;
     position: relative !important;
   }
   .section-footer [data-node-id="0:649"],
@@ -1694,24 +1743,25 @@ p {
   }
   .section-footer input[name=newsletter] {
     width: 100% !important;
-    height: 46px !important;
+    height: 42px !important;
     border: 1px solid rgba(25, 71, 53, 0.25) !important;
-    border-radius: 10px !important;
-    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    padding: 8px 14px !important;
     background: #ffffff !important;
     color: #194735 !important;
     font-size: 14px !important;
     box-sizing: border-box !important;
+    text-align: center !important;
   }
   .section-footer button[data-action="subscribe"] {
     width: 100% !important;
-    height: 46px !important;
+    height: 42px !important;
     background: #EE4129 !important;
     color: #ffffff !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     border: none !important;
     font-weight: 600 !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     cursor: pointer !important;
   }
   .section-footer [data-node-id="0:653"] {
@@ -1730,10 +1780,10 @@ p {
   .section-footer [data-node-id="0:628"] {
     order: 5 !important;
     width: 100% !important;
-    max-width: 340px !important;
+    max-width: 320px !important;
     height: 1px !important;
     background: rgba(25, 71, 53, 0.15) !important;
-    margin: 12px 0 0 !important;
+    margin: 10px 0 0 !important;
   }
   /* Copyright */
   .section-footer [data-node-id="0:627"] {
@@ -1847,7 +1897,11 @@ p {
   .section-packages [data-node-id="0:1116"],
   .section-footer [data-name="Footer img"],
   .section-footer [data-node-id="0:625"],
-  .section-footer img[src*="3f8a5df9"] {
+  .section-footer img[src*="3f8a5df9"],
+  [data-node-id="0:1029"],
+  [data-node-id="0:1030"],
+  [data-name="Travel_Concepts_2 1"],
+  img[src*="be462599"] {
     display: none !important;
   }
 }
