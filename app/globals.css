@@ -377,11 +377,11 @@ p {
   }
 
   /* Universal reset for inline Figma margins */
-  [style*="margin-left"]:not([data-node-id="0:967"] .figma-layer) {
+  [style*="margin-left"]:not([data-node-id="0:967"] .figma-layer):not([data-name="Clients"]):not([data-node-id="0:965"]) {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  [style*="margin-top"]:not([data-node-id="0:967"] .figma-layer) {
+  [style*="margin-top"]:not([data-node-id="0:967"] .figma-layer):not([data-name="Clients"]):not([data-node-id="0:965"]) {
     margin-top: 0 !important;
   }
   [style*="width: 1920"],
@@ -478,21 +478,42 @@ p {
   /* ------------------------------------------------------------
      4. HERO SECTION - Modern Mobile Redesign
      ------------------------------------------------------------ */
+  section.figma-section.section-hero,
   .section-hero {
     background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('/design/334bf328-13df-4c26-9979-0a4d27aed386.png') center/cover no-repeat !important;
-    padding: 36px 16px 52px !important;
-    gap: 20px !important;
+    min-height: calc(100vh - 67px) !important;
+    min-height: calc(100dvh - 67px) !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 20px 16px 20px !important;
+    gap: 0 !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
   }
   .section-hero * { color: #E8DFC8; }
 
-  .section-hero [data-name="Context"] {
+  /* Hero Context containers */
+  .section-hero [data-node-id="0:964"] {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    text-align: center !important;
-    gap: 16px !important;
+    justify-content: space-between !important;
+    flex: 1 1 100% !important;
     width: 100% !important;
+    height: 100% !important;
+  }
+
+  .section-hero [data-node-id="0:976"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 14px !important;
+    margin: 0 auto !important;
   }
 
   /* Hero Headline */
@@ -511,48 +532,57 @@ p {
     overflow-wrap: normal !important;
   }
 
-  /* Social Proof Badge (Avatars + Text) */
-  [data-name="Clients"] {
+  /* Social Proof Badge (Avatars + Text - Compact Sleek Pill at Bottom) */
+  .section-hero [data-name="Clients"],
+  .section-hero [data-node-id="0:965"] {
     order: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin: 4px auto 8px !important;
-    background: rgba(0, 0, 0, 0.45) !important;
-    padding: 10px 16px !important;
-    border-radius: 999px !important;
-    border: 1px solid rgba(232, 223, 200, 0.25) !important;
-    backdrop-filter: blur(8px) !important;
-    width: auto !important;
-    max-width: 92% !important;
-  }
-  [data-node-id="0:966"] {
-    text-align: center !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    color: #E8DFC8 !important;
-    margin: 0 !important;
-    max-width: 250px !important;
-    white-space: normal !important;
-  }
-  [data-node-id="0:967"] {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    margin-bottom: 16px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(232, 223, 200, 0.25) !important;
+    backdrop-filter: blur(8px) !important;
+    width: auto !important;
+    max-width: 94% !important;
   }
-  [data-node-id="0:967"] .figma-layer {
-    width: 32px !important;
-    height: 32px !important;
-    margin-left: -6px !important;
+  .section-hero [data-node-id="0:966"] {
+    order: 2 !important;
+    text-align: left !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    color: #E8DFC8 !important;
+    margin: 0 !important;
+    max-width: 195px !important;
+    white-space: normal !important;
+  }
+  .section-hero [data-node-id="0:967"] {
+    order: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+  .section-hero [data-node-id="0:967"] .figma-layer {
+    width: 22px !important;
+    height: 22px !important;
+    margin-left: -5px !important;
     border-radius: 50% !important;
     overflow: hidden !important;
-    border: 2px solid var(--cream) !important;
+    border: 1.5px solid #ffffff !important;
     flex: none !important;
   }
-  [data-node-id="0:967"] .figma-layer:first-child {
+  .section-hero [data-node-id="0:967"] .figma-layer:first-child {
     margin-left: 0 !important;
+  }
+  .section-hero [data-node-id="0:975"] {
+    display: none !important;
   }
 
   /* Search Tools Card (Travel Booking Boxes) */
