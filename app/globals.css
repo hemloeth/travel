@@ -791,10 +791,18 @@ p {
     margin: 0 !important;
     height: auto !important;
   }
-  /* Hide the awkward orange background rounded shape on Best Flights */
-  [data-node-id="0:948"],
-  [data-node-id="0:946"] {
+  /* Hide the orange background shape & shadows on Best Flights card so all cards have equal height */
+  [data-node-id="0:945"],
+  [data-node-id="0:946"],
+  [data-node-id="0:948"] {
     display: none !important;
+  }
+  .section-services [data-node-id="0:950"] {
+    width: 72px !important;
+    height: 72px !important;
+  }
+  .section-services [data-node-id="0:950"] img {
+    object-fit: contain !important;
   }
 
   /* ------------------------------------------------------------
@@ -1924,7 +1932,7 @@ p {
   [class*="h-[272px]"], [class*="h-[142px]"], [class*="h-[103px]"], [class*="h-[114px]"] { height: auto !important; }
 
   /* Icons and small fixed size elements preserve their dimensions */
-  .figma-layer[class*="size-["] {
+  .figma-layer[class*="size-["]:not([data-node-id="0:945"]) {
     flex: none !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -1943,6 +1951,8 @@ p {
   }
 
   /* Final overrides to ensure decorative Figma clutter stays hidden on mobile */
+  [data-node-id="0:945"],
+  .section-services [data-node-id="0:945"],
   .section-packages [data-name="uil:calender"],
   .section-packages [data-name="ooui:user-avatar-outline"],
   .section-packages [data-name="ep:location"],
