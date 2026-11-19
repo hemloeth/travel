@@ -628,25 +628,49 @@ p {
   .section-partners {
     padding: 24px 16px !important;
     background: #ded4bb !important;
+    width: 100% !important;
     overflow: hidden !important;
   }
+  .section-partners [data-name="partners"],
   .section-partners [data-node-id="0:1015"] {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 24px !important;
+    gap: 16px 28px !important;
     width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
     height: auto !important;
     position: relative !important;
-    overflow: hidden !important;
+    background: transparent !important;
   }
-  .section-partners [data-node-id="0:1015"] > * {
+  /* Hide the gray mask background boxes from Figma */
+  .section-partners [data-name="Mask group"],
+  .section-partners [data-node-id="0:1018"],
+  .section-partners [data-node-id="0:1021"],
+  .section-partners [data-node-id="0:1022"],
+  .section-partners [data-node-id="0:1025"],
+  .section-partners [data-node-id="0:1026"] {
+    display: none !important;
+  }
+  .section-partners [data-name="image 912"],
+  .section-partners [data-name="image 909"] {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    margin: 0 !important;
-    opacity: 0.7 !important;
+    width: auto !important;
+    max-width: 130px !important;
+    height: 38px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0.85 !important;
+  }
+  .section-partners img {
+    max-height: 34px !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
 
   /* ------------------------------------------------------------
@@ -655,18 +679,36 @@ p {
   .section-services {
     align-items: center !important;
     text-align: center !important;
-    padding: 48px 16px !important;
+    padding: 44px 16px !important;
+    background: var(--cream) !important;
   }
   .section-services [data-name="Title"] {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 6px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+  }
+  .section-services [data-name="Title"] p[class*="text-[#EE4129]"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-services [data-name="Title"] p[class*="text-[#194735]"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
   }
   .section-services [data-name="Services"] {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 20px !important;
     width: 100% !important;
     max-width: 340px !important;
@@ -680,7 +722,7 @@ p {
     border-radius: 18px !important;
     padding: 28px 20px !important;
     box-shadow: 0 6px 24px rgba(0,0,0,0.06) !important;
-    gap: 10px !important;
+    gap: 12px !important;
   }
   .section-services [data-name="Services"] .figma-layer[data-name] {
     order: 1 !important;
@@ -699,46 +741,726 @@ p {
     line-height: 1.5 !important;
     max-width: 260px !important;
     margin: 0 !important;
+    height: auto !important;
+  }
+  /* Hide the awkward orange background rounded shape on Best Flights */
+  [data-node-id="0:948"],
+  [data-node-id="0:946"] {
+    display: none !important;
   }
 
   /* ------------------------------------------------------------
-     7. PACKAGES SECTION
+     7. HONEYMOON SPECIALS SECTION
      ------------------------------------------------------------ */
-  .section-packages [data-name="Pac"],
-  .package-matches-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+  .section-honeymoon {
+    padding: 44px 16px !important;
     width: 100% !important;
-    max-width: 360px !important;
-    margin: 20px auto 0 !important;
-  }
-  .section-packages [data-name="Pac"] > .contents {
+    background: var(--cream) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+  /* Hide all decorative plus signs and figma artifacts in Honeymoon */
+  .section-honeymoon [data-name="Background Element"],
+  .section-honeymoon [data-name="Illustration"],
+  .section-honeymoon [data-node-id="0:917"],
+  .section-honeymoon [data-node-id="0:919"],
+  .section-honeymoon [data-node-id="0:920"],
+  .section-honeymoon [data-node-id="0:921"],
+  .section-honeymoon [data-node-id="0:922"],
+  .section-honeymoon [data-node-id="0:924"],
+  .section-honeymoon [data-node-id="0:925"],
+  .section-honeymoon [data-node-id="0:926"],
+  .section-honeymoon [data-node-id="0:927"],
+  .section-honeymoon [data-node-id="0:786"] {
+    display: none !important;
+  }
+  .section-honeymoon [data-name="Romantic Tropical land"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 20px !important;
+  }
+  .section-honeymoon [data-name="Context"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    order: 1 !important;
+  }
+  .section-honeymoon [data-node-id="0:929"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-honeymoon [data-node-id="0:930"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+  }
+  .section-honeymoon [data-node-id="0:933"] {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #7d7d7d !important;
+    margin: 0 !important;
+    max-width: 320px !important;
+    height: auto !important;
+  }
+  .section-honeymoon [data-node-id="0:931"] {
+    background: #EE4129 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 14px 28px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    margin-top: 6px !important;
+  }
+
+  /* ------------------------------------------------------------
+     8. BOOKING (FAST & EASY) SECTION
+     ------------------------------------------------------------ */
+  .section-booking {
+    padding: 44px 16px !important;
+    width: 100% !important;
+    background: var(--cream) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 24px !important;
+  }
+  /* Hide all the 25 plus signs and background illustration */
+  .section-booking [data-node-id="0:762"],
+  .section-booking [data-name="Background Element"],
+  .section-booking [data-name="Illustration"],
+  .section-booking [data-name="heart (6) 1"],
+  .section-booking [data-node-id="0:786"],
+  .section-booking [data-node-id="0:787"],
+  .section-booking [data-node-id="0:788"],
+  .section-booking [data-node-id="0:790"],
+  .section-booking [data-node-id="0:791"],
+  .section-booking [data-node-id="0:792"],
+  .section-booking [data-node-id="0:793"],
+  .section-booking [data-node-id="0:814"],
+  .section-booking [data-node-id="0:817"],
+  .section-booking [data-node-id="0:831"],
+  .section-booking [data-node-id="0:832"],
+  .section-booking [data-node-id="0:833"],
+  .section-booking [data-node-id="0:836"],
+  .section-booking [data-node-id="0:837"] {
+    display: none !important;
+  }
+  .section-booking [data-name="Book a trip"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+  .section-booking [data-name="Context"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+  }
+  .section-booking [data-name="Heading"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .section-booking [data-node-id="0:856"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-booking [data-node-id="0:855"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+  }
+  .section-booking [data-name="Values"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 10px auto 0 !important;
+  }
+  .section-booking [data-name="Values"] > .contents {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
     background: #ffffff !important;
     border-radius: 16px !important;
-    overflow: hidden !important;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.08) !important;
-    padding: 16px !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    gap: 10px !important;
+    padding: 18px 16px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05) !important;
+    gap: 6px !important;
   }
-  .section-packages [data-name="Pac"] img {
-    border-radius: 12px !important;
+  .section-booking [data-name="Values"] p[class*="font-bold"],
+  .section-booking [data-name="Values"] p[class*="font-semibold"] {
+    font-size: 16px !important;
+    color: #194735 !important;
+    margin: 0 !important;
+  }
+  .section-booking [data-name="Values"] p[class*="text-[#5e6282]"] {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: #7d7d7d !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+
+  /* ------------------------------------------------------------
+     9. HOLIDAY BANNER SECTION
+     ------------------------------------------------------------ */
+  .section-holiday {
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/design/0cb7cb61-b58d-4a11-8fc2-a89aa0421e35.png') center/cover no-repeat !important;
+    padding: 60px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
     width: 100% !important;
-    max-height: 220px !important;
+    min-height: 220px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .section-holiday [data-node-id="0:756"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .section-holiday [data-node-id="0:757"] {
+    display: none !important;
+  }
+  .section-holiday [data-node-id="0:758"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .section-holiday [data-node-id="0:759"] {
+    font-size: clamp(24px, 6vw, 34px) !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    width: 100% !important;
+    white-space: normal !important;
+    height: auto !important;
+    font-family: var(--volkhov), serif !important;
+  }
+  .section-holiday [data-node-id="0:759"] p {
+    margin: 0 !important;
+    white-space: normal !important;
+    display: inline !important;
+  }
+  .section-holiday [data-node-id="0:760"] {
+    width: 160px !important;
+    height: auto !important;
+    margin: 4px auto 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .section-holiday [data-node-id="0:760"] img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ------------------------------------------------------------
+     10. INDIA SIGHTSEEING TOURS SECTION
+     ------------------------------------------------------------ */
+  .section-india {
+    padding: 44px 16px !important;
+    background: var(--cream) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+  .section-india [data-node-id="0:723"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    gap: 12px !important;
+    margin: 0 auto !important;
+  }
+  .section-india [data-name="Context"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    order: 1 !important;
+  }
+  .section-india [data-node-id="0:725"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-india [data-node-id="0:726"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+    font-family: var(--volkhov), serif !important;
+  }
+  .section-india [data-node-id="0:729"] {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #7d7d7d !important;
+    margin: 0 !important;
+    max-width: 320px !important;
+    height: auto !important;
+  }
+  .section-india [data-node-id="0:727"] {
+    background: #EE4129 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 14px 28px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    margin-top: 6px !important;
+  }
+  .section-india [data-node-id="0:728"] {
+    color: #ffffff !important;
+    margin: 0 !important;
+  }
+  /* Featured Image */
+  .section-india [data-name="Illustration"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    order: 2 !important;
+  }
+  .section-india [data-node-id="0:731"],
+  .section-india [data-node-id="0:735"] {
+    display: none !important; /* Hide rotated "Breath Taking Viewes" and decoration */
+  }
+  .section-india [data-node-id="0:732"],
+  .section-india [data-node-id="0:734"] {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 220px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+  }
+  .section-india [data-node-id="0:734"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: static !important;
+  }
+  /* 4 Destination Cards in 2x2 Grid */
+  .section-india [data-name^="Destination"] {
+    order: 3 !important;
+    display: block !important;
+    position: relative !important;
+    width: calc(50% - 8px) !important;
+    max-width: 165px !important;
+    height: 140px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important;
+    flex: none !important;
+  }
+  .section-india [data-name^="Destination"] img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
   }
-  .section-packages [data-name="Button Search"] {
+  .section-india [data-name^="Destination"] .contents {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+  }
+  .section-india [data-name^="Destination"] .contents .figma-layer {
+    background: rgba(0,0,0,0.65) !important;
+    backdrop-filter: blur(4px) !important;
+    border-radius: 20px !important;
+    height: 24px !important;
+    width: 54px !important;
+    margin: 0 !important;
+  }
+  .section-india [data-name^="Destination"] p {
+    position: absolute !important;
+    top: 2px !important;
+    right: 12px !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+  }
+
+  /* ------------------------------------------------------------
+     11. EXPLORE NATURE & CITIES SECTION
+     ------------------------------------------------------------ */
+  .section-explore {
+    padding: 30px 16px !important;
+    gap: 20px !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .section-explore [data-node-id="0:704"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+  .section-explore [data-node-id="0:706"],
+  .section-explore [data-node-id="0:707"],
+  .section-explore [data-node-id="0:715"],
+  .section-explore [data-node-id="0:716"],
+  .section-explore [data-name="Line-3"],
+  .section-explore [data-name="Line-8"] {
+    display: none !important;
+  }
+  .section-explore [data-name="Explore Nature"],
+  .section-explore [data-name="Explore Cities"] {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    min-height: 220px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 32px 20px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+    gap: 8px !important;
+  }
+  .section-explore [data-name="Explore Nature"] {
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/design/d2f94a28-99cc-4ab7-91a5-71852497ef25.png') center/cover no-repeat !important;
+  }
+  .section-explore [data-name="Explore Cities"] {
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/design/fd600336-d4fd-4b34-b965-4f4154022743.png') center/cover no-repeat !important;
+  }
+  .section-explore [data-node-id="0:708"],
+  .section-explore [data-node-id="0:717"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .section-explore p[class*="text-[18px]"] {
+    font-size: 13px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+    order: 1 !important;
+  }
+  .section-explore p[class*="text-[50px]"] {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    height: auto !important;
+    order: 2 !important;
+  }
+  .section-explore [data-name="Button Search"] {
+    order: 3 !important;
+    background: #EE4129 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 10px 22px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    margin-top: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .section-explore [data-name="Button Search"] p {
+    color: #ffffff !important;
+    margin: 0 !important;
+  }
+
+  /* ------------------------------------------------------------
+     12. TRENDING TOUR PACKAGES SECTION
+     ------------------------------------------------------------ */
+  .section-packages {
+    padding: 44px 16px !important;
+    width: 100% !important;
+    background: var(--cream) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+  .section-packages [data-name="Title"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+  .section-packages [data-node-id="0:1032"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-packages [data-node-id="0:1033"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+    font-family: var(--volkhov), serif !important;
+  }
+  .section-packages [data-name="Packages"],
+  .section-packages [data-node-id="0:1034"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+  .section-packages [data-node-id="0:1035"],
+  .section-packages [data-node-id="0:1066"],
+  .section-packages [data-node-id="0:1097"] {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 16px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    position: relative !important;
+  }
+  /* Package Images */
+  .section-packages [data-node-id="0:1036"],
+  .section-packages [data-node-id="0:1067"],
+  .section-packages [data-node-id="0:1098"] {
+    width: 100% !important;
+    height: 200px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    margin: 0 0 4px !important;
+    order: 1 !important;
+    position: relative !important;
+  }
+  .section-packages [data-node-id="0:1036"] img,
+  .section-packages [data-node-id="0:1067"] img,
+  .section-packages [data-node-id="0:1098"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: static !important;
+    border-radius: 14px !important;
+  }
+  /* Package Titles */
+  .section-packages [data-node-id="0:1038"],
+  .section-packages [data-node-id="0:1069"],
+  .section-packages [data-node-id="0:1100"] {
+    order: 2 !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-family: var(--poppins), sans-serif !important;
+  }
+  /* Locations */
+  .section-packages [data-node-id="0:1041"],
+  .section-packages [data-node-id="0:1072"],
+  .section-packages [data-node-id="0:1103"] {
+    order: 3 !important;
+    font-size: 14px !important;
+    color: #7d7d7d !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  /* Days and People Going row */
+  .section-packages [data-node-id="0:1042"],
+  .section-packages [data-node-id="0:1043"],
+  .section-packages [data-node-id="0:1073"],
+  .section-packages [data-node-id="0:1074"],
+  .section-packages [data-node-id="0:1104"],
+  .section-packages [data-node-id="0:1105"] {
+    order: 4 !important;
+    font-size: 13px !important;
+    color: #7d7d7d !important;
+    margin: 0 !important;
+    display: inline-block !important;
+  }
+  /* Current Price */
+  .section-packages [data-node-id="0:1039"],
+  .section-packages [data-node-id="0:1070"],
+  .section-packages [data-node-id="0:1101"] {
+    order: 5 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  /* Old Price */
+  .section-packages [data-node-id="0:1040"],
+  .section-packages [data-node-id="0:1071"],
+  .section-packages [data-node-id="0:1102"] {
+    order: 5 !important;
+    font-size: 15px !important;
+    text-decoration: line-through !important;
+    color: #aaa !important;
+    margin: 0 0 0 10px !important;
+    display: inline-block !important;
+  }
+  /* Descriptions */
+  .section-packages [data-node-id="0:1047"],
+  .section-packages [data-node-id="0:1078"],
+  .section-packages [data-node-id="0:1109"] {
+    order: 6 !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    color: #555555 !important;
+    margin: 0 !important;
+    height: auto !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  /* Explore Now Button */
+  .section-packages [data-node-id="0:1048"],
+  .section-packages [data-node-id="0:1079"],
+  .section-packages [data-node-id="0:1110"] {
+    order: 7 !important;
     width: 100% !important;
     background: #EE4129 !important;
-    color: #fff !important;
-    border-radius: 8px !important;
-    padding: 12px !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
     font-weight: 600 !important;
+    font-size: 15px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 6px !important;
+  }
+  .section-packages [data-node-id="0:1049"],
+  .section-packages [data-node-id="0:1080"],
+  .section-packages [data-node-id="0:1111"] {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+  }
+  /* Star ratings */
+  .section-packages [data-node-id="0:1055"],
+  .section-packages [data-node-id="0:1086"],
+  .section-packages [data-node-id="0:1117"] {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 3px !important;
+  }
+  /* Hide decorative clutter */
+  .section-packages [data-node-id="0:1037"],
+  .section-packages [data-node-id="0:1044"],
+  .section-packages [data-node-id="0:1050"],
+  .section-packages [data-node-id="0:1052"],
+  .section-packages [data-node-id="0:1054"],
+  .section-packages [data-node-id="0:1068"],
+  .section-packages [data-node-id="0:1075"],
+  .section-packages [data-node-id="0:1081"],
+  .section-packages [data-node-id="0:1083"],
+  .section-packages [data-node-id="0:1085"],
+  .section-packages [data-node-id="0:1099"],
+  .section-packages [data-node-id="0:1106"],
+  .section-packages [data-node-id="0:1112"],
+  .section-packages [data-node-id="0:1114"],
+  .section-packages [data-node-id="0:1116"] {
+    display: none !important;
   }
 
   /* Star ratings */
@@ -750,105 +1472,276 @@ p {
     margin: 0 1px !important;
     flex: none !important;
   }
-  .contents:has(> [data-name="bi:star-fill"]) {
+
+  /* ------------------------------------------------------------
+     11. TESTIMONIALS SECTION
+     ------------------------------------------------------------ */
+  .section-testimonials {
+    background: linear-gradient(rgba(232, 223, 200, 0.94), rgba(232, 223, 200, 0.94)), url('/design/65d98af5-2a14-445e-a250-7e61b6f6800c.png') center/cover no-repeat !important;
+    padding: 48px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    gap: 20px !important;
+  }
+  .section-testimonials [data-name="HEading"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .section-testimonials [data-node-id="0:674"] {
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #EE4129 !important;
+    margin: 0 !important;
+  }
+  .section-testimonials [data-node-id="0:675"] {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    height: auto !important;
+  }
+  .section-testimonials [data-name="TEstimonial"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 24px 20px !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06) !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 12px auto 0 !important;
+    gap: 12px !important;
+  }
+  .section-testimonials [data-node-id="0:681"] {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    margin: 0 auto 6px !important;
+    border: 3px solid var(--cream) !important;
+  }
+  .section-testimonials [data-node-id="0:681"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .section-testimonials [data-node-id="0:679"] {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #555555 !important;
+    font-style: italic !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+  .section-testimonials [data-node-id="0:680"] {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 4px 0 0 !important;
+  }
+  /* Hide background shapes and pagination arrows on mobile */
+  .section-testimonials [data-node-id="0:623"],
+  .section-testimonials [data-node-id="0:678"],
+  .section-testimonials [data-node-id="0:682"],
+  .section-testimonials [data-node-id="0:684"],
+  .section-testimonials [data-name="navigation"],
+  .section-testimonials [data-name="Pagination"] {
+    display: none !important;
+  }
+
+  /* ------------------------------------------------------------
+     12. FOOTER SECTION
+     ------------------------------------------------------------ */
+  .section-footer {
+    background: #f7f4ea !important;
+    padding: 44px 20px 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 28px !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(25, 71, 53, 0.1) !important;
+  }
+  /* Hide the desktop background image */
+  .section-footer [data-node-id="0:625"] {
+    display: none !important;
+  }
+  /* Logo */
+  .section-footer [data-name="logo"] {
+    order: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-bottom: 4px !important;
+  }
+  .section-footer [data-node-id="0:668"] {
+    font-family: var(--volkhov), serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+  }
+  /* Tagline & Social Icons */
+  .section-footer [data-node-id="0:654"] {
+    order: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .section-footer [data-node-id="0:655"] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #666666 !important;
+    margin: 0 !important;
+    max-width: 260px !important;
+    text-align: center !important;
+  }
+  .section-footer [data-node-id="0:656"] {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 3px !important;
+    gap: 16px !important;
+    margin-top: 4px !important;
   }
-
-  /* ------------------------------------------------------------
-     8. OTHER SECTIONS (Holiday, Destinations, Testimonial, Footer)
-     ------------------------------------------------------------ */
-  .section-holiday {
-    background: url('/design/22b768fb-97cc-4491-8a26-3451c18231fb.png') center/cover no-repeat !important;
-    min-height: 200px !important;
+  .section-footer [data-node-id="0:656"] .figma-layer {
+    width: 36px !important;
+    height: 36px !important;
+    background: #ffffff !important;
+    border-radius: 50% !important;
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
-    padding: 40px 16px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    padding: 8px !important;
   }
-  .section-holiday * { color: #E8DFC8 !important; }
-
-  .section-testimonials {
-    background: url('/design/65d98af5-2a14-445e-a250-7e61b6f6800c.png') center/cover no-repeat !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 48px 16px !important;
-  }
-  .section-testimonials [data-name="Testimonial section"] {
+  /* Nav Wrap (Company & Destinations columns) */
+  .section-footer [data-name="Nav Wrap"] {
+    order: 3 !important;
     display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 40px !important;
     width: 100% !important;
     max-width: 360px !important;
-    margin: 0 auto !important;
-  }
-
-  .section-explore {
-    padding: 0 !important;
-    gap: 16px !important;
-    width: 100% !important;
-  }
-  .section-explore [data-name="Explore Nature"],
-  .section-explore [data-name="Explore Cities"] {
-    position: relative !important;
-    width: 100% !important;
-    min-height: 240px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 36px 16px !important;
-  }
-  .section-explore [data-name="Explore Nature"] {
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('/design/d2f94a28-99cc-4ab7-91a5-71852497ef25.png') center/cover no-repeat !important;
-  }
-  .section-explore [data-name="Explore Cities"] {
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('/design/fd600336-d4fd-4b34-b965-4f4154022743.png') center/cover no-repeat !important;
-  }
-  .section-explore [data-name="Explore Nature"] *,
-  .section-explore [data-name="Explore Cities"] * { color: #fff !important; }
-
-  .section-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 44px 16px 24px !important;
-    gap: 24px !important;
-  }
-  .section-footer [data-name="Nav Wrap"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 24px !important;
-    width: 100% !important;
+    text-align: left !important;
   }
   .section-footer [data-name="Nav List Item"] {
     display: flex !important;
     flex-direction: column !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+  }
+  .section-footer [data-name="Nav List Item"] > p {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 0 4px !important;
+    white-space: nowrap !important;
+  }
+  .section-footer [data-name="Nav List Item"] a,
+  .section-footer [data-name="Nav List Item"] div > p {
+    font-size: 14px !important;
+    color: #555555 !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: 2px 0 !important;
+  }
+  /* Newsletter Block */
+  .section-footer [data-node-id="0:645"] {
+    order: 4 !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 10px auto 0 !important;
+  }
+  .section-footer [data-node-id="0:646"] {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #194735 !important;
+    margin: 0 !important;
+  }
+  .section-footer [data-node-id="0:648"] {
+    display: flex !important;
+    flex-direction: column !important;
     gap: 8px !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+  .section-footer [data-node-id="0:649"],
+  .section-footer [data-node-id="0:651"] {
+    display: none !important;
   }
   .section-footer input[name=newsletter] {
     width: 100% !important;
-    max-width: 320px !important;
-    border: 1px solid var(--spruce) !important;
-    border-radius: 8px !important;
+    height: 46px !important;
+    border: 1px solid rgba(25, 71, 53, 0.25) !important;
+    border-radius: 10px !important;
     padding: 10px 14px !important;
-    background: #fff !important;
-    margin-bottom: 8px !important;
+    background: #ffffff !important;
+    color: #194735 !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
   }
   .section-footer button[data-action="subscribe"] {
+    width: 100% !important;
+    height: 46px !important;
     background: #EE4129 !important;
-    color: #E8DFC8 !important;
-    padding: 10px 24px !important;
-    border-radius: 8px !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    border: none !important;
     font-weight: 600 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+  }
+  .section-footer [data-node-id="0:653"] {
+    font-size: 12px !important;
+    color: #888888 !important;
+    margin: 0 !important;
+  }
+  .section-footer [data-node-id="0:653"] p {
+    font-size: 12px !important;
+    color: #888888 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+  /* Divider */
+  .section-footer [data-node-id="0:628"] {
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: 1px !important;
+    background: rgba(25, 71, 53, 0.15) !important;
+    margin: 12px 0 0 !important;
+  }
+  /* Copyright */
+  .section-footer [data-node-id="0:627"] {
+    order: 6 !important;
+    font-size: 12px !important;
+    color: #888888 !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
 
   .section-page {
@@ -931,5 +1824,30 @@ p {
     max-width: 100% !important;
     max-height: 100% !important;
     object-fit: contain !important;
+  }
+
+  /* Final overrides to ensure decorative Figma clutter stays hidden on mobile */
+  .section-packages [data-name="uil:calender"],
+  .section-packages [data-name="ooui:user-avatar-outline"],
+  .section-packages [data-name="ep:location"],
+  .section-packages [data-node-id="0:1037"],
+  .section-packages [data-node-id="0:1068"],
+  .section-packages [data-node-id="0:1099"],
+  .section-packages [data-node-id="0:1044"],
+  .section-packages [data-node-id="0:1050"],
+  .section-packages [data-node-id="0:1052"],
+  .section-packages [data-node-id="0:1054"],
+  .section-packages [data-node-id="0:1075"],
+  .section-packages [data-node-id="0:1081"],
+  .section-packages [data-node-id="0:1083"],
+  .section-packages [data-node-id="0:1085"],
+  .section-packages [data-node-id="0:1106"],
+  .section-packages [data-node-id="0:1112"],
+  .section-packages [data-node-id="0:1114"],
+  .section-packages [data-node-id="0:1116"],
+  .section-footer [data-name="Footer img"],
+  .section-footer [data-node-id="0:625"],
+  .section-footer img[src*="3f8a5df9"] {
+    display: none !important;
   }
 }
