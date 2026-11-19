@@ -61,9 +61,19 @@ p {
 }
 
 /* ============================================================
+   MOBILE HEADER COMPONENT (Hidden by default on Desktop)
+   ============================================================ */
+.mobile-app-header {
+  display: none;
+}
+
+/* ============================================================
    DESKTOP VIEW (> 1100px): Proportional Figma Scale
    ============================================================ */
 @media (min-width: 1101px) {
+  .mobile-app-header {
+    display: none !important;
+  }
   .design-viewport {
     max-width: 1920px;
     overflow: hidden;
@@ -215,24 +225,120 @@ p {
     overflow-x: hidden !important;
   }
 
-  .design-viewport {
+  /* ------------------------------------------------------------
+     1. Modern Sticky Mobile App Header with Hamburger Drawer
+     ------------------------------------------------------------ */
+  .mobile-app-header {
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(25, 71, 53, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(232, 223, 200, 0.2) !important;
     width: 100% !important;
     max-width: 100vw !important;
-    margin: 0 !important;
-    overflow-x: hidden !important;
-  }
-
-  .design-page {
-    zoom: 1 !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    min-width: 0 !important;
-    overflow-x: hidden !important;
     box-sizing: border-box !important;
   }
 
-  /* All main sections stack vertically and fit mobile screen */
-  .figma-section {
+  .mobile-header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-brand {
+    font-family: var(--volkhov), serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #E8DFC8 !important;
+    text-decoration: none !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-hamburger-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #E8DFC8 !important;
+    cursor: pointer !important;
+    padding: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: none !important;
+  }
+
+  .mobile-hamburger-btn svg {
+    stroke: #E8DFC8 !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .mobile-nav-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px 20px 24px !important;
+    background: var(--spruce) !important;
+    border-top: 1px solid rgba(232, 223, 200, 0.12) !important;
+    gap: 12px !important;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.3) !important;
+  }
+
+  .mobile-nav-link {
+    color: var(--cream) !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 8px 0 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(232, 223, 200, 0.08) !important;
+  }
+
+  .mobile-nav-cta {
+    background: var(--tomato) !important;
+    color: var(--cream) !important;
+    text-align: center !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    margin-top: 6px !important;
+  }
+
+  /* ------------------------------------------------------------
+     2. Page and Viewport Reset
+     ------------------------------------------------------------ */
+  main#main,
+  .design-viewport,
+  .design-page {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* All main sections stack vertically and fit mobile screen without overflowing */
+  section.figma-section,
+  .figma-section,
+  .section-hero,
+  .section-partners,
+  .section-services,
+  .section-honeymoon,
+  .section-booking,
+  .section-explore,
+  .section-packages,
+  .section-testimonials,
+  .section-footer,
+  .section-page {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -241,16 +347,56 @@ p {
     min-height: 0 !important;
     width: 100% !important;
     max-width: 100vw !important;
-    padding: 44px 16px !important;
+    padding: 36px 16px !important;
     gap: 20px !important;
     overflow: hidden !important;
     grid-template-columns: none !important;
     box-sizing: border-box !important;
+    position: relative !important;
   }
 
-  /* Layers flow naturally - keep position: relative so absolute child images are contained! */
+  /* Reset all Figma coordinates and dimensions across all elements */
+  [class*="left-"] {
+    left: auto !important;
+  }
+  [class*="top-"] {
+    top: auto !important;
+  }
+  [class*="right-"] {
+    right: auto !important;
+  }
+  [class*="bottom-"] {
+    bottom: auto !important;
+  }
+  [class*="w-["]:not(.mobile-app-header):not(.mobile-app-header *):not(.mobile-hamburger-btn *) {
+    max-width: 100% !important;
+  }
+  .flex-none {
+    flex-shrink: 1 !important;
+    max-width: 100% !important;
+  }
+
+  /* Universal reset for inline Figma margins */
+  [style*="margin-left"]:not([data-node-id="0:967"] .figma-layer) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  [style*="margin-top"]:not([data-node-id="0:967"] .figma-layer) {
+    margin-top: 0 !important;
+  }
+  [style*="width: 1920"],
+  [style*="width:1920"] {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Layers flow naturally without absolute positions or offsets */
   .figma-layer {
     position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 0 !important;
@@ -265,7 +411,48 @@ p {
     box-sizing: border-box !important;
   }
 
-  /* Decorative artifacts and oversized shapes to hide on mobile */
+  /* ------------------------------------------------------------
+     3. Hide Desktop-Only Artifacts, Masks, and Clutter
+     ------------------------------------------------------------ */
+  /* Hide the old desktop navbar completely inside the page since we have modern mobile header */
+  [data-name="top Nav Bar"],
+  [data-name="top Nav Bar"] *,
+  [data-node-id="0:991"],
+  [data-node-id="0:991"] *,
+  [data-name="Nav bar"],
+  [data-name="Nav bar"] *,
+  [data-name="Nav elements"],
+  [data-name="Nav elements"] *,
+  [data-name="Sign in"],
+  [data-name="Sign in"] *,
+  [data-node-id="0:998"],
+  [data-node-id="0:998"] *,
+  [data-node-id="0:1003"],
+  [data-node-id="0:1003"] *,
+  .section-hero [data-name="logo"],
+  .section-hero [data-name="logo"] *,
+  .section-page [data-name="top Nav Bar"],
+  .section-page [data-name="top Nav Bar"] *,
+  .section-page [data-name="Header"],
+  .section-page [data-name="Header"] *,
+  .section-hero [data-node-id="0:962"],
+  .section-hero [data-node-id="0:963"],
+  .section-hero [data-node-id="0:988"],
+  .section-hero [data-node-id="0:989"],
+  .section-hero [data-node-id="0:990"],
+  .section-hero [data-node-id="0:1000"],
+  .section-hero [data-node-id="0:1002"],
+  .section-hero [data-node-id="0:1007"],
+  .section-hero [data-node-id="0:1011"],
+  .section-hero [data-node-id="0:1012"],
+  .section-hero [data-node-id="0:1013"],
+  .section-hero [data-node-id="0:1014"],
+  .section-hero [data-services-menu],
+  [data-services-menu],
+  [data-name="Background Element"],
+  [data-name="Vector"],
+  [data-name="Vector "],
+  [data-name="Scroll"],
   [data-node-id="0:920"],
   [data-node-id="0:731"],
   [data-node-id="0:945"],
@@ -274,206 +461,32 @@ p {
   [data-node-id="0:940"],
   [data-node-id="0:953"],
   [data-node-id="0:957"],
-  [data-node-id="0:962"],
-  [data-node-id="0:963"],
-  [data-node-id="0:988"],
-  [data-node-id="0:989"],
-  [data-node-id="0:990"],
-  [data-node-id="0:1000"],
-  [data-node-id="0:1002"],
-  [data-node-id="0:1007"],
-  [data-node-id="0:1011"],
-  [data-node-id="0:1012"],
-  [data-node-id="0:1013"],
-  [data-node-id="0:1014"],
-  [data-services-menu],
-  [data-name="Background Element"],
-  [data-name="Vector"],
-  [data-name="Vector "],
-  [data-name="Scroll"],
-  .figma-layer:has(img[src*="da815372"]) {
-    display: none !important;
-  }
-
-  /* Hide huge fixed desktop background layers */
+  [data-node-id="0:979"],
   .figma-layer[class*="w-[1920px]"],
   .figma-layer[class*="w-[1857px]"],
   .figma-layer[class*="w-[1629px]"],
   .figma-layer[class*="w-[1328px]"],
   .figma-layer[class*="w-[1200px]"],
   .figma-layer[class*="w-[960px]"],
-  .figma-layer[class*="h-0"] {
-    display: none !important;
-  }
-
+  .figma-layer[class*="h-0"],
+  .figma-layer:has(img[src*="da815372"]),
+  .figma-layer:has(img[src*="48b82d01"]),
   .figma-layer:empty:not(input):not(textarea):not(select):not(button):not(a) {
     display: none !important;
   }
 
-  /* Decorative artifacts to hide on mobile */
-  [data-name="Background Element"],
-  [data-name="Vector"],
-  [data-name="Vector "],
-  .figma-layer[class*="rotate-"],
-  .figma-layer:has(> [class*="rotate-"]),
-  .figma-layer:has([class*="opacity-16"]),
-  .figma-layer:has([class*="opacity-10"]),
-  .figma-layer > div[class*="bg-[#EE4129]"],
-  .section-hero [data-name="Scroll"],
-  .section-page [data-name="Scroll"],
-  .section-hero [data-node-id="0:1007"],
-  .section-hero [data-services-menu],
-  .section-hero .figma-layer[class*="w-[3px]"],
-  .section-hero .figma-layer[data-node-id="0:1002"] {
-    display: none !important;
-  }
-
-  /* CRITICAL: Keep icons and avatars at their proper dimensions (do not stretch!) */
-  .figma-layer[class*="size-["] {
-    flex: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: auto !important;
-  }
-
-  /* Image sizing: responsive for photos, contained for icons */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .figma-layer[class*="size-["] img,
-  [data-name="bi:star-fill"] img,
-  [data-name*="icon"] img,
-  [data-name*="arrow"] img {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    object-fit: contain !important;
-  }
-
-  /* Fluid typography */
-  .text-\[157\.426px\] { font-size: clamp(2.5rem, 9vw, 4.5rem) !important; line-height: 1.1 !important; }
-  .text-\[58\.506px\] { font-size: clamp(1.75rem, 6.5vw, 2.75rem) !important; line-height: 1.25 !important; }
-  .text-\[51\.192px\] { font-size: clamp(1.5rem, 5.5vw, 2.25rem) !important; line-height: 1.25 !important; }
-  .text-\[50px\] { font-size: clamp(1.5rem, 5vw, 2.25rem) !important; line-height: 1.25 !important; }
-  .text-\[42px\], .text-\[40px\] { font-size: clamp(1.35rem, 4.5vw, 1.85rem) !important; line-height: 1.3 !important; }
-  .text-\[34\.188px\] { font-size: clamp(1.25rem, 4vw, 1.6rem) !important; }
-  .text-\[31\.622px\] { font-size: clamp(1.2rem, 3.8vw, 1.5rem) !important; }
-  .text-\[29\.033px\], .text-\[28\.92px\] { font-size: clamp(1.1rem, 3.5vw, 1.35rem) !important; }
-  .text-\[24\.871px\] { font-size: clamp(1rem, 3vw, 1.25rem) !important; }
-  [class*="leading-["] { line-height: 1.35 !important; }
-  [class*="w-[631px]"], [class*="w-[583px]"], [class*="w-[574px]"], [class*="w-[639px]"] { width: 100% !important; max-width: 100% !important; }
-  [class*="h-[272px]"], [class*="h-[142px]"], [class*="h-[103px]"], [class*="h-[114px]"] { height: auto !important; }
-
-  /* Buttons & interactive links */
-  .figma-layer:is(a, button) {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 44px !important;
-    padding: 10px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-  }
-
-  /* Hide desktop-only artifacts in hero */
-  .section-hero > .figma-layer[data-node-id="0:962"],
-  .section-hero [data-node-id="0:962"],
-  .section-hero [data-node-id="0:963"],
-  .section-hero [data-node-id="0:989"],
-  .section-hero [data-node-id="0:990"],
-  .section-hero [data-node-id="0:1007"],
-  .section-hero [data-node-id="0:1011"],
-  .section-hero [data-node-id="0:988"],
-  .section-hero [data-services-menu],
-  [data-services-menu],
-  [data-name="Sign in"] .figma-layer[class*="h-[58px]"],
-  [data-name="Sign in"] .figma-layer:has(img[src*="48b82d01"]) {
-    display: none !important;
-  }
-
-  /* Header / Navigation */
-  .section-hero [data-name="top Nav Bar"],
-  .section-page [data-name="top Nav Bar"] {
-    order: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    z-index: 10 !important;
-  }
-
-  [data-name="logo"] {
-    order: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    gap: 8px !important;
-    margin: 0 auto 4px !important;
-  }
-
-  [data-name="Nav bar"],
-  [data-name="navigation"] {
-    order: 2 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  [data-name="Nav elements"] {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 10px 18px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px !important;
-    width: 100% !important;
-    padding: 0 8px !important;
-  }
-  [data-name="Nav elements"] a,
-  [data-name="Nav elements"] button {
-    margin: 0 !important;
-    padding: 6px 10px !important;
-    min-height: 32px !important;
-    font-size: 14px !important;
-    white-space: nowrap !important;
-    width: auto !important;
-  }
-
-  [data-name="Sign in"] {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin-top: 4px !important;
-  }
-  [data-name="Sign in"] a {
-    margin: 0 !important;
-    background: #EE4129 !important;
-    color: #E8DFC8 !important;
-    padding: 10px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    width: auto !important;
-  }
-
-  /* Hero Section */
+  /* ------------------------------------------------------------
+     4. HERO SECTION - Modern Mobile Redesign
+     ------------------------------------------------------------ */
   .section-hero {
     background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('/design/334bf328-13df-4c26-9979-0a4d27aed386.png') center/cover no-repeat !important;
-    padding: 24px 16px 48px !important;
-    gap: 24px !important;
+    padding: 36px 16px 52px !important;
+    gap: 20px !important;
+    width: 100% !important;
   }
   .section-hero * { color: #E8DFC8; }
+
   .section-hero [data-name="Context"] {
-    order: 2 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -482,37 +495,46 @@ p {
     width: 100% !important;
   }
 
-  /* Main hero heading */
+  /* Hero Headline */
   [data-node-id="0:977"] {
-    font-size: clamp(1.4rem, 5.8vw, 1.85rem) !important;
-    line-height: 1.3 !important;
+    order: 1 !important;
+    font-size: clamp(1.6rem, 6.2vw, 2.1rem) !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
     width: 100% !important;
     max-width: 310px !important;
     height: auto !important;
     text-align: center !important;
+    color: #E8DFC8 !important;
+    margin: 4px auto !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
-    hyphens: none !important;
-    white-space: normal !important;
-    margin: 0 auto !important;
   }
 
-  /* Client avatars row */
+  /* Social Proof Badge (Avatars + Text) */
   [data-name="Clients"] {
+    order: 2 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 8px !important;
-    margin-top: 4px !important;
-    width: 100% !important;
+    margin: 4px auto 8px !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(232, 223, 200, 0.25) !important;
+    backdrop-filter: blur(8px) !important;
+    width: auto !important;
+    max-width: 92% !important;
   }
   [data-node-id="0:966"] {
     text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    color: #E8DFC8 !important;
+    margin: 0 !important;
+    max-width: 250px !important;
     white-space: normal !important;
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    max-width: 280px !important;
-    margin: 0 auto !important;
   }
   [data-node-id="0:967"] {
     display: flex !important;
@@ -533,127 +555,193 @@ p {
     margin-left: 0 !important;
   }
 
-  /* Hero Search Form */
+  /* Search Tools Card */
   .section-hero form[data-name="Searcging Tools"] {
+    order: 3 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-    background: rgba(243, 243, 243, 0.92) !important;
-    backdrop-filter: blur(14px) !important;
-    border-radius: 12px !important;
-    padding: 16px !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 20px 18px !important;
     width: 100% !important;
     max-width: 350px !important;
     margin: 8px auto 0 !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3) !important;
   }
   .section-hero form[data-name="Searcging Tools"] .design-input {
     order: 1 !important;
     width: 100% !important;
     color: #194735 !important;
-    background: #fff !important;
-    border: 1px solid rgba(25,71,53,.3) !important;
-    border-radius: 8px !important;
+    background: #f7f5ef !important;
+    border: 1px solid rgba(25, 71, 53, 0.2) !important;
+    border-radius: 10px !important;
     padding: 12px 14px !important;
     min-height: 48px !important;
+    font-size: 15px !important;
+    margin: 0 !important;
   }
-  .section-hero form[data-name="Searcging Tools"] .contents,
-  .section-hero form[data-name="Searcging Tools"] select,
-  .section-hero form[data-name="Searcging Tools"] div:has(> select) {
-    order: 2 !important;
+  .section-hero form[data-name="Searcging Tools"] span {
     width: 100% !important;
+    display: flex !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] .figma-layer:has(select) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] .figma-layer:has(select[name="travelType"]) {
+    order: 2 !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] .figma-layer:has(select[name="duration"]) {
+    order: 3 !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] select {
+    width: 100% !important;
+    background: #f7f5ef !important;
+    border: 1px solid rgba(25, 71, 53, 0.2) !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    color: #194735 !important;
+    font-size: 14px !important;
+    min-height: 48px !important;
+  }
+  .section-hero form[data-name="Searcging Tools"] select + svg path {
+    stroke: #194735 !important;
   }
   .section-hero form[data-name="Searcging Tools"] button[type=submit] {
-    order: 10 !important;
+    order: 4 !important;
     width: 100% !important;
     min-height: 48px !important;
     background: #EE4129 !important;
-    color: #E8DFC8 !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
     border: none !important;
+    margin: 2px 0 0 !important;
+    cursor: pointer !important;
   }
 
-  /* Partners Section */
+  /* ------------------------------------------------------------
+     5. PARTNERS SECTION
+     ------------------------------------------------------------ */
   .section-partners {
     padding: 24px 16px !important;
     background: #ded4bb !important;
+    overflow: hidden !important;
   }
-  .section-partners > .figma-layer > .contents {
+  .section-partners [data-node-id="0:1015"] {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 20px !important;
-    align-items: center !important;
     justify-content: center !important;
+    align-items: center !important;
+    gap: 24px !important;
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .section-partners [data-node-id="0:1015"] > * {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    opacity: 0.7 !important;
   }
 
-  /* Services Section */
+  /* ------------------------------------------------------------
+     6. SERVICES SECTION
+     ------------------------------------------------------------ */
   .section-services {
     align-items: center !important;
     text-align: center !important;
     padding: 48px 16px !important;
   }
+  .section-services [data-name="Title"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+  }
   .section-services [data-name="Services"] {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    grid-template-columns: 1fr !important;
     gap: 20px !important;
     width: 100% !important;
-    max-width: 900px !important;
-    margin-top: 16px !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
   }
   .section-services [data-name="Services"] > .contents {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    background: #fff !important;
-    border-radius: 16px !important;
-    padding: 24px 16px !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06) !important;
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    padding: 28px 20px !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06) !important;
     gap: 10px !important;
   }
   .section-services [data-name="Services"] .figma-layer[data-name] {
     order: 1 !important;
+    margin-bottom: 4px !important;
   }
   .section-services [data-name="Services"] p[class*="text-[20px]"] {
     order: 2 !important;
-    margin: 4px 0 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--spruce) !important;
+    margin: 0 !important;
   }
   .section-services [data-name="Services"] p[class*="text-[#5e6282]"] {
     order: 3 !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
-    max-width: 240px !important;
+    max-width: 260px !important;
+    margin: 0 !important;
   }
 
-  /* Packages Section */
+  /* ------------------------------------------------------------
+     7. PACKAGES SECTION
+     ------------------------------------------------------------ */
   .section-packages [data-name="Pac"],
   .package-matches-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: 1fr !important;
     gap: 24px !important;
     width: 100% !important;
-    max-width: 1100px !important;
-    margin-top: 20px !important;
+    max-width: 360px !important;
+    margin: 20px auto 0 !important;
   }
   .section-packages [data-name="Pac"] > .contents {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    background: #fff !important;
+    background: #ffffff !important;
     border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.07) !important;
-    padding-bottom: 20px !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08) !important;
+    padding: 16px !important;
     width: 100% !important;
-    max-width: 360px !important;
     margin: 0 auto !important;
+    gap: 10px !important;
   }
-  .section-packages .figma-layer[class*="w-[392px]"],
-  .section-packages .figma-layer[class*="w-[393px]"] {
+  .section-packages [data-name="Pac"] img {
+    border-radius: 12px !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-height: 220px !important;
+    object-fit: cover !important;
+  }
+  .section-packages [data-name="Button Search"] {
+    width: 100% !important;
+    background: #EE4129 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
   }
 
-  /* Star ratings row */
+  /* Star ratings */
   [data-name="bi:star-fill"],
   .figma-layer[data-name="bi:star-fill"] {
     display: inline-flex !important;
@@ -670,27 +758,12 @@ p {
     gap: 3px !important;
   }
 
-  /* India Destinations */
-  .section-india [data-name="India Sightseeing Tours"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    gap: 24px !important;
-  }
-  .section-india [data-name^="Destination"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: 260px !important;
-    margin: 0 auto !important;
-  }
-
-  /* Holiday Strip */
+  /* ------------------------------------------------------------
+     8. OTHER SECTIONS (Holiday, Destinations, Testimonial, Footer)
+     ------------------------------------------------------------ */
   .section-holiday {
     background: url('/design/22b768fb-97cc-4491-8a26-3451c18231fb.png') center/cover no-repeat !important;
-    min-height: 220px !important;
+    min-height: 200px !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
@@ -698,7 +771,6 @@ p {
   }
   .section-holiday * { color: #E8DFC8 !important; }
 
-  /* Testimonials */
   .section-testimonials {
     background: url('/design/65d98af5-2a14-445e-a250-7e61b6f6800c.png') center/cover no-repeat !important;
     align-items: center !important;
@@ -710,45 +782,42 @@ p {
     flex-direction: column !important;
     gap: 16px !important;
     width: 100% !important;
-    max-width: 500px !important;
+    max-width: 360px !important;
     margin: 0 auto !important;
   }
 
-  /* Explore Nature / Cities */
   .section-explore {
     padding: 0 !important;
     gap: 16px !important;
+    width: 100% !important;
   }
   .section-explore [data-name="Explore Nature"],
   .section-explore [data-name="Explore Cities"] {
     position: relative !important;
     width: 100% !important;
-    min-height: 260px !important;
+    min-height: 240px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 40px 20px !important;
+    padding: 36px 16px !important;
   }
   .section-explore [data-name="Explore Nature"] {
-    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/design/d2f94a28-99cc-4ab7-91a5-71852497ef25.png') center/cover no-repeat !important;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('/design/d2f94a28-99cc-4ab7-91a5-71852497ef25.png') center/cover no-repeat !important;
   }
   .section-explore [data-name="Explore Cities"] {
-    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/design/fd600336-d4fd-4b34-b965-4f4154022743.png') center/cover no-repeat !important;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('/design/fd600336-d4fd-4b34-b965-4f4154022743.png') center/cover no-repeat !important;
   }
   .section-explore [data-name="Explore Nature"] *,
-  .section-explore [data-name="Explore Cities"] * {
-    color: #fff !important;
-  }
+  .section-explore [data-name="Explore Cities"] * { color: #fff !important; }
 
-  /* Footer */
   .section-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 48px 16px 24px !important;
+    padding: 44px 16px 24px !important;
     gap: 24px !important;
   }
   .section-footer [data-name="Nav Wrap"] {
@@ -782,17 +851,14 @@ p {
     font-weight: 600 !important;
   }
 
-  /* Inner page hero */
   .section-page {
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)) 0 0/100% 70vh no-repeat, var(--cream) !important;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)) 0 0/100% 70vh no-repeat, var(--cream) !important;
     align-items: center !important;
     text-align: center !important;
     padding: 24px 16px 48px !important;
   }
   .section-page * { color: #E8DFC8; }
-  .section-page [data-name="logo"] * { color: #E8DFC8 !important; }
 
-  /* Package builder page */
   .builder-canvas {
     background: var(--cream) !important;
     padding: 24px 16px !important;
@@ -830,5 +896,40 @@ p {
     flex-direction: row !important;
     align-items: center !important;
     gap: 12px !important;
+  }
+
+  /* ------------------------------------------------------------
+     9. Responsive Typography clamp & general resets
+     ------------------------------------------------------------ */
+  .text-\[157\.426px\] { font-size: clamp(2.2rem, 8.5vw, 3.8rem) !important; line-height: 1.1 !important; }
+  .text-\[58\.506px\] { font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important; line-height: 1.25 !important; }
+  .text-\[51\.192px\] { font-size: clamp(1.4rem, 5vw, 2rem) !important; line-height: 1.25 !important; }
+  .text-\[50px\] { font-size: clamp(1.4rem, 5vw, 2rem) !important; line-height: 1.25 !important; }
+  .text-\[42px\], .text-\[40px\] { font-size: clamp(1.3rem, 4.2vw, 1.75rem) !important; line-height: 1.3 !important; }
+  .text-\[34\.188px\] { font-size: clamp(1.2rem, 3.8vw, 1.5rem) !important; }
+  .text-\[31\.622px\] { font-size: clamp(1.15rem, 3.6vw, 1.4rem) !important; }
+  .text-\[29\.033px\], .text-\[28\.92px\] { font-size: clamp(1.1rem, 3.4vw, 1.3rem) !important; }
+  .text-\[24\.871px\] { font-size: clamp(1rem, 3vw, 1.2rem) !important; }
+  [class*="leading-["] { line-height: 1.35 !important; }
+  [class*="w-[631px]"], [class*="w-[583px]"], [class*="w-[574px]"], [class*="w-[639px]"] { width: 100% !important; max-width: 100% !important; }
+  [class*="h-[272px]"], [class*="h-[142px]"], [class*="h-[103px]"], [class*="h-[114px]"] { height: auto !important; }
+
+  /* Icons and small fixed size elements preserve their dimensions */
+  .figma-layer[class*="size-["] {
+    flex: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .figma-layer[class*="size-["] img,
+  [data-name="bi:star-fill"] img,
+  [data-name*="icon"] img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
   }
 }
